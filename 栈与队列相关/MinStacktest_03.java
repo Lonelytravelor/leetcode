@@ -30,17 +30,13 @@ public class MinStacktest_03 {
         * @Description : 入栈
         * @Core : 判断
         * @SolveThinking : 当入栈时主栈没有元素，则说明当前为空栈，当前值为最小值，同时入栈
-         * 当入栈时主栈有值，则直接入主栈，然后和最小栈中的栈顶元素比较，如果也小于最小值，则入栈，大于最小值则不操作
+         * 当入栈时主栈有值，则直接入主栈，然后和最小栈中的栈顶元素比较，
+         * 特别注意：如果小于等于最小值，则入栈，大于最小值则不操作
         **/
-        if( mainStack.empty() ){
-            mainStack.push(num);
+        if( mainStack.empty() || num <= minStack.peek()){
             minStack.push(num);
-        }else {
-            mainStack.push(num);
-            if( num <= minStack.peek() ){
-                minStack.push(num);
-            }
         }
+        mainStack.push(num);
     }
 
 
